@@ -1,3 +1,6 @@
+import enums.Gender;
+import models.Person;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,24 +47,6 @@ public class Main {
     }
 
 
-    static class Person{
 
-        public String name;
-        public Gender gender;
-
-        Person(String name, Gender gender){
-            this.name = name;
-            this.gender = gender;
-        }
-
-        @Override
-        public String toString() {
-            return name;
-        }
-    }
-
-    enum Gender{
-        MALE, FEMALE;
-    }
 
 }
