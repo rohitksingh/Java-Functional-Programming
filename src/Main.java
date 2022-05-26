@@ -5,39 +5,42 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new Main().filterFemales();
+        new Main().printFemales();
 
     }
 
 
 
-    public void filterFemales(){
+    public void printFemales(){
 
-        List<Person> persons = List.of(
-                new Person("Rohit", Gender.MALE),
-                new Person("Alice", Gender.FEMALE),
-                new Person("Alex", Gender.MALE),
-                new Person("Amanda", Gender.FEMALE),
-                new Person("Susan", Gender.FEMALE));
+        //Declarative way
+        printAllFemalesImperative(getAllPeople());
 
-        //Imperative way to count
+    }
+
+
+    public void printAllFemalesImperative(List<Person> people){
+
         List<Person> females = new ArrayList<>();
 
-        for(Person person: persons){
-
-            System.out.println(person.name+" "+person.gender);
-
+        for(Person person: people){
             if(person.gender.equals(Gender.FEMALE)){
                 females.add(person);
             }
         }
 
-        for(Person female: females){
-            System.out.println(female.name);
-        }
+        for(Person female: females)
+            System.out.println(female);
+    }
 
 
-
+    public List<Person> getAllPeople(){
+        return List.of(
+                new Person("Rohit", Gender.MALE),
+                new Person("Alice", Gender.FEMALE),
+                new Person("Alex", Gender.MALE),
+                new Person("Amanda", Gender.FEMALE),
+                new Person("Susan", Gender.FEMALE));
     }
 
 
@@ -49,6 +52,11 @@ public class Main {
         Person(String name, Gender gender){
             this.name = name;
             this.gender = gender;
+        }
+
+        @Override
+        public String toString() {
+            return name;
         }
     }
 
