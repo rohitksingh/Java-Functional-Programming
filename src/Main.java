@@ -3,6 +3,7 @@ import models.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -16,13 +17,19 @@ public class Main {
 
     public void printFemales(){
 
-        //Declarative way
         printAllFemalesImperative(getAllPeople());
+        printAllFemalesDeclerative(getAllPeople());
 
     }
 
 
+    /********************************************************************
+     *          Filter females from people
+     *******************************************************************/
+
     public void printAllFemalesImperative(List<Person> people){
+
+        System.out.println("//Imperative way to filter females");
 
         List<Person> females = new ArrayList<>();
 
@@ -36,7 +43,21 @@ public class Main {
             System.out.println(female);
     }
 
+    public void printAllFemalesDeclerative(List<Person> people){
 
+        System.out.println("//Declarative way to filter females");
+        people.stream()
+                .filter(person -> person.gender.equals(Gender.FEMALE))
+                .collect(Collectors.toList())
+                .forEach(female -> System.out.println(female));
+
+    }
+
+
+
+    /********************************************************************
+     *          Helper method to populate people
+     *******************************************************************/
     public List<Person> getAllPeople(){
         return List.of(
                 new Person("Rohit", Gender.MALE),
@@ -45,8 +66,5 @@ public class Main {
                 new Person("Amanda", Gender.FEMALE),
                 new Person("Susan", Gender.FEMALE));
     }
-
-
-
 
 }
