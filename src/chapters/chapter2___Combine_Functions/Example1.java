@@ -1,10 +1,10 @@
-package lessons;
+package chapters.chapter2___Combine_Functions;
 
 import java.util.function.Function;
 
 //How to combine multiple functions (How to combine things)
 //Eg: Add a two numbers and multiply by 10;
-public class Lesson2 {
+public class Example1 {
 
     public static void main(String[] args) {
         int incrementedNum = increment(3);

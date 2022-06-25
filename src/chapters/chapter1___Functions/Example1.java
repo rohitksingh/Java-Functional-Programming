@@ -1,9 +1,9 @@
-package lessons;
+package chapters.chapter1___Functions;
 
 import java.util.function.Function;
 
 //How to write a function in functional way
-public class Lesson1 {
+public class Example1 {
 
     public static void main(String[] args) {
 
